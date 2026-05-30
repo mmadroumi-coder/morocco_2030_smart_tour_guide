@@ -1,4 +1,4 @@
-# 🇲🇦 Smart Tour Guide — AI for Morocco 2030
+# Moroccan Smart Tour Guide — AI for Morocco 2030
 
 ![Python](https://img.shields.io/badge/Python-3.10%2B-blue?style=for-the-badge&logo=python)
 ![TensorFlow](https://img.shields.io/badge/TensorFlow-2.x-orange?style=for-the-badge&logo=tensorflow)
