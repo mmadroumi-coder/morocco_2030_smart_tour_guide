@@ -38,14 +38,14 @@ Le projet repose sur l'intégration et la fusion de deux piliers majeurs de l'In
 ## 🎬 Démonstration Visuelle
 
 *(Glissez ici une capture d'écran de l'application Streamlit ou un GIF animé de démonstration)*
-![Aperçu de l'application](https://images.unsplash.com/photo-1539667468225-eebb663053e6?auto=format&fit=crop&w=800&q=80)
+![Aperçu de l'application]()
 
 ---
 
 ## 🚀 Démarrage & Installation
 
 Pour tester l'application sur votre machine (déploiement local), veuillez consulter le guide détaillé étape par étape :
-👉 **[Lire le guide d'installation (INSTALL.md)](INSTALL.md)**
+👉 **[Lire le guide d'installation ](install.md)**
 
 ---
 
