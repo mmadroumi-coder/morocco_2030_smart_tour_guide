@@ -1,6 +1,6 @@
 # 🛠️ Guide d'Installation et d'Accès à l'Application
 
-Ce document est destiné aux utilisateurs souhaitant déployer, exécuter et tester l'application **Smart Tour Guide** sur leur machine locale. L'architecture reposant entièrement sur l'Edge AI, l'exécution des modèles de Vision et de NLP s'effectue à 100% en local et hors-ligne.
+Ce document est destiné aux utilisateurs et membres du jury souhaitant déployer, exécuter et tester l'application **Smart Tour Guide** sur leur machine locale. L'architecture reposant entièrement sur l'Edge AI, l'exécution des modèles de Vision et de NLP s'effectue à 100% en local et hors-ligne.
 
 ---
 
@@ -8,38 +8,53 @@ Ce document est destiné aux utilisateurs souhaitant déployer, exécuter et tes
 
 Avant de procéder à la configuration, assurez-vous que votre système dispose des spécifications suivantes :
 * **Système d'exploitation** : Windows, macOS ou Linux.
-* **Python** : Version 3.10 ou supérieure installée.
+* **Python** : Version **3.10 ou 3.11 (Strictement requise)**. 
+  > ⚠️ *Note critique d'ingénierie : L'écosystème Machine Learning nécessite des versions LTS (Long Term Support) stables. N'utilisez pas de versions trop récentes (comme Python 3.13 ou 3.14), car le moteur C++ de TensorFlow n'y est pas compatible. Lors de l'installation sous Windows, assurez-vous de cocher la case **"Add python.exe to PATH"**.*
 * **Ollama** : Le moteur d'inférence pour grands modèles de langage (LLM) doit être installé sur la machine. Vous pouvez le télécharger gratuitement sur [ollama.com](https://ollama.com/).
 * **Ressources Matérielles** : Un minimum de 8 Go de RAM est requis (16 Go fortement recommandés pour une fluidité d'inférence optimale du LLM).
 
 ---
 
-## 2. Récupération du Projet
+## 2. Récupération et Emplacement du Projet
 
-Deux options s'offrent à vous pour récupérer l'intégralité du code source et des fichiers du projet :
+### ⚠️ Avertissement Crucial : Emplacement du dossier (Windows)
+Ne placez **jamais** le dossier du projet dans un répertoire synchronisé par le Cloud (comme le Bureau ou les Documents sous **OneDrive**). Le moteur de TensorFlow ne peut pas ouvrir le fichier du modèle de vision (`.h5`) s'il s'agit d'un raccourci virtuel.
+👉 **Règle d'or :** Extrayez ou clonez le dossier à la racine de votre disque dur physique (par exemple : `C:\Smart_Tour_Guide`).
+
+Deux options s'offrent à vous pour récupérer l'intégralité du code source :
 
 ### Option A : Téléchargement direct (Recommandé pour le Jury)
 1. En haut à droite de cette page GitHub, cliquez sur le bouton vert **"Code"**.
 2. Sélectionnez **"Download ZIP"**.
-3. Extrayez l'archive téléchargée dans le dossier de votre choix sur votre ordinateur.
-4. Ouvrez un terminal (ou invite de commande) et naviguez jusqu'à la racine de ce dossier extrait.
+3. Extrayez l'archive téléchargée directement à la racine de votre disque (`C:\`).
+4. Ouvrez un terminal (ou invite de commande) et naviguez jusqu'à ce dossier.
 
 ### Option B : Clonage via Git (Pour les développeurs)
 Ouvrez votre terminal et exécutez la suite de commandes suivante :
+
+~~~bash
+cd C:\
 git clone [https://github.com/votre-nom/morocco-2030-ai-guide.git](https://github.com/votre-nom/morocco-2030-ai-guide.git)
 cd morocco-2030-ai-guide
+~~~
 
 ---
 
 ## 3. Installation de l'Environnement et des Dépendances
 
-Il est recommandé d'utiliser un environnement virtuel pour isoler les bibliothèques. À la racine du projet, exécutez la commande suivante pour installer l'ensemble des modules Python requis (TensorFlow, Streamlit, Ollama, Pillow, etc.) :
+À la racine du projet, exécutez la commande suivante pour installer l'ensemble des modules Python requis (TensorFlow, Streamlit, Ollama, Pillow, etc.) :
 
+~~~bash
 pip install -r requirements.txt
+~~~
+*(Astuce Windows : Si la commande `pip` n'est pas reconnue, utilisez `py -m pip install -r requirements.txt`)*
 
-Ensuite, téléchargez le modèle linguistique français nécessaire au fonctionnement des fonctionnalités de traitement du langage naturel (NLP) via la bibliothèque spaCy :
+Ensuite, téléchargez le dictionnaire linguistique français nécessaire au fonctionnement des fonctionnalités de traitement du langage naturel (NLP) via spaCy :
 
+~~~bash
 python -m spacy download fr_core_news_sm
+~~~
+*(Astuce Windows : Utilisez `py -m spacy download fr_core_news_sm` si nécessaire).*
 
 ---
 
@@ -50,14 +65,18 @@ L'application s'appuie sur une architecture multimodale qui nécessite l'exécut
 ### 🟢 Étape 1 : Initialisation du moteur NLP (Terminal 1)
 Dans le premier terminal, lancez le LLM local en exécutant la commande suivante. Laissez impérativement ce terminal ouvert en arrière-plan :
 
+~~~bash
 ollama run mistral
-
-*(Note : Lors du tout premier lancement, Ollama téléchargera automatiquement les poids quantifiés du modèle Mistral, ce qui représente un téléchargement d'environ 4 Go).*
+~~~
+*(Note : Lors du tout premier lancement, Ollama téléchargera automatiquement les poids quantifiés du modèle Mistral, ce qui représente environ 4 Go).*
 
 ### 🔵 Étape 2 : Lancement de l'interface graphique (Terminal 2)
-Ouvrez un second terminal, placez-vous à la racine du projet, puis démarrez le serveur applicatif Streamlit :
+Ouvrez un second terminal, placez-vous à la racine du projet (`C:\Smart_Tour_Guide`), puis démarrez le serveur applicatif Streamlit :
 
+~~~bash
 streamlit run app.py
+~~~
+*(Astuce Windows : Utilisez `py -m streamlit run app.py` en cas d'erreur de variable d'environnement).*
 
 ---
 
@@ -68,4 +87,4 @@ Une fois les deux étapes de lancement validées, le serveur Streamlit initialis
 Si ce n'est pas le cas, vous pouvez y accéder directement en copiant-collant l'adresse locale suivante dans la barre de recherche de votre navigateur :
 👉 **http://localhost:8501**
 
-Vous pouvez désormais téléverser une image de monument pour tester la détection visuelle et interagir en direct avec le guide touristique autonome.
+Vous pouvez désormais téléverser une image de monument pour tester la détection visuelle et interagir en direct avec le guide touristique autonome !
