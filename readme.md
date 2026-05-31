@@ -57,5 +57,5 @@ L'application nécessite une configuration spécifique pour garantir la compatib
 ---
 
 ## 👨‍💻 Développé par
-**Mohamed** Madroumi  
+**Mohammed** Madroumi  
 *Élève Ingénieur en Intelligence Artificielle et Technologies de Données pour les Systèmes Industriels (IATDSI) - ENSAM.*
