@@ -37,8 +37,8 @@ Le projet repose sur l'intégration et la fusion de deux piliers majeurs de l'In
 
 ## 🎬 Démonstration Visuelle
 
-*(Glissez ici une capture d'écran de l'application Streamlit ou un GIF animé de démonstration)*
-![Aperçu de l'application]()
+<img width="1864" height="859" alt="dashbord" src="https://github.com/user-attachments/assets/708161d9-2767-4317-b663-51bbedafb96e" />
+
 
 ---
 
