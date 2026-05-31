@@ -1,0 +1,15 @@
+site_name: Smart Tour Guide - Documentation
+site_description: Documentation technique du projet d'Edge AI pour la Coupe du Monde 2030.
+site_author: Mohamed Madroumi
+
+# Utilisation du thème standard clair et professionnel
+theme:
+  name: readthedocs
+
+# Configuration du menu de navigation gauche
+nav:
+  - 🏠 Accueil & Présentation: index.md
+  - 👁️ Module Vision (MobileNetV2): vision.md
+  - 🧠 Module NLP (Mistral): nlp.md
+  - 🔄 Architecture & Intégration: architecture.md
+  - 🏁 Conclusion & Perspectives: conclusion.md
