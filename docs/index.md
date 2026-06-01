@@ -40,13 +40,13 @@ L'interface graphique a été développée pour être intuitive, ergonomique, et
 > 
 > *Le module de vision analyse l'image capturée et affiche le niveau de confiance de la prédiction.*
 > 
-> `![Aperçu de la détection visuelle](chemin/vers/image_vision.png)`
+<img width="949" height="775" alt="Screenshot 2026-05-31 161413" src="https://github.com/user-attachments/assets/f5c4af11-524f-4795-80ac-14c99523c283" />
 
 > **2. Interaction avec le Guide**
 > 
 > *Le module linguistique prend le relais dans un format "chat" classique et interactif.*
 > 
-> `![Aperçu du chat interactif](chemin/vers/image_chat.png)`
+<img width="904" height="838" alt="Screenshot 2026-05-31 160143" src="https://github.com/user-attachments/assets/b04be4e7-03f5-470b-b523-41005fe1e1e9" />
 
 ---
 
